@@ -1,0 +1,335 @@
+KICH BAN SLIDE BAO VE DE TAI AURABEAM
+
+1. BO CUC TONG QUAN
+
+So luong de xuat: 16 slide
+
+1. Title
+2. Dat van de
+3. Khoang trong cua giai phap hien tai
+4. Muc tieu va dong gop
+5. Kien truc tong the AuraBeam
+6. Ensemble YOLOv5-v8
+7. Trade-off mAP giam nhung Recall tang
+8. Pseudo-Radar + Kalman 3D
+9. Co che xu ly occlusion
+10. Zone mapping + HIL hardware
+11. Dataset va Golden Test Set
+12. Ket qua detection
+13. Ket qua tracking va fusion
+14. Ket qua GSSR + ablation
+15. Demo HIL
+16. Ket luan + han che + huong phat trien
+
+Ty le noi dung:
+- 20%: Dat van de, motivation, gap
+- 35%: Phuong phap de xuat
+- 30%: Thuc nghiem va ket qua
+- 15%: Demo, ket luan, han che
+
+
+2. NOI DUNG CHI TIET TUNG SLIDE
+
+Slide 1. Title
+Tieu de:
+- AuraBeam: Smart Matrix Headlight using Ensemble AI and Sensor Fusion
+
+Text bullet:
+- Ten de tai
+- Ho ten sinh vien
+- Giang vien huong dan
+- Don vi
+
+Visual/Layout:
+- 1 anh tong the he thong hoac mockup xe + camera + LED matrix
+- Bo cuc sach, it chu
+
+
+Slide 2. Dat van de
+Text bullet:
+- 50% tai nan tu vong xay ra vao ban dem
+- Glare tu xe doi dien lam giam tam nhin
+- ADB can vua chieu sang vua tranh gay choi
+- Bai toan: chong choi on dinh khi bi loa manh
+
+Visual/Layout:
+- Ben trai: anh duong dem bi choi
+- Ben phai: minh hoa High Beam vs Adaptive Beam
+
+Thong diep noi:
+- Bat dau bang bai toan an toan, khong bat dau bang YOLO
+
+
+Slide 3. Khoang trong cua giai phap hien tai
+Text bullet:
+- AHB chi bat/tat toan bo den
+- ADB hien tai phu thuoc camera
+- Camera bi saturate -> mat bounding box
+- He thong co the bat lai full beam
+- Failure mode nguy hiem nhat: glare-induced detection loop failure
+
+Visual/Layout:
+- So do 4 buoc:
+  Oncoming glare -> Camera blind -> Box vanish -> Full beam returns
+
+
+Slide 4. Muc tieu va dong gop
+Text bullet:
+- C1. Ensemble YOLOv5-v8 + Weighted NMS
+- C2. Kalman 3D + Pseudo-Radar
+- C3. GSSR metric o muc LED-grid
+- C4. HIL platform voi Arduino + LED matrix
+
+Visual/Layout:
+- 4 o dong gop dat ngang
+- To dam cac phan tu lam duoc trong de tai
+
+Thong diep noi:
+- Day la he thong end-to-end, khong chi la mo hinh AI
+
+
+Slide 5. Kien truc tong the AuraBeam
+Text bullet:
+- Camera input
+- Ensemble detection
+- Pseudo-Radar depth estimation
+- Kalman 3D fusion
+- Zone mapping
+- Arduino actuation
+
+Visual/Layout:
+- Dat so do pipeline tong the full slide
+- Neu co draw.io thi dung hinh nay la trung tam
+
+
+Slide 6. Module A: Ensemble YOLOv5-v8
+Text bullet:
+- M1: YOLOv5 cho headlight glare
+- M2: YOLOv8 cho vehicle traffic
+- Chay song song
+- Weighted NMS de fuse ket qua
+- Muc tieu: tang Recall trong adverse lighting
+
+Visual/Layout:
+- So do 2 nhanh model -> Weighted NMS -> output box
+- Chen nho thong tin dataset: 5,500 + 6,000 anh
+
+
+Slide 7. Trade-off co chu dich: mAP giam nhung Recall tang
+Text bullet:
+- Weighted NMS co the gay IoU drift
+- mAP khong nhat thiet tang
+- Recall tang ro trong rain, fog, lightning
+- Fail-safe: uu tien tranh False Negative
+- Over-suppression tot hon under-suppression
+
+Visual/Layout:
+- Trai: 2 bounding box va fused box lech GT
+- Phai: bar chart so sanh mAP va Recall
+- 1 dong ket luan lon: Safety > pixel-perfect detection
+
+Thong diep noi:
+- Trong ADB, bo sot xe doi dien nguy hiem hon tat du vai LED
+
+
+Slide 8. Module B+C: Pseudo-Radar + Kalman 3D
+Text bullet:
+- State 6 chieu: x, vx, y, vy, z, vz
+- Vision cung cap (x, y)
+- Pseudo-Radar cung cap z
+- Fusion theo constant velocity model
+- Muc tieu: giu trajectory lien tuc va on dinh
+
+Visual/Layout:
+- Ben trai: state vector rut gon
+- Ben phai: block fusion diagram
+
+Luu y:
+- Khong dua qua nhieu cong thuc len slide
+
+
+Slide 9. Co che xu ly occlusion
+Text bullet:
+- Full mode: camera + radar
+- Neu confidence giam duoi nguong -> switch mode
+- Occlusion mode: radar-only observation
+- Kalman tiep tuc propagate trajectory
+- LED suppression khong flicker
+
+Visual/Layout:
+- So sanh 2 cot:
+  Normal mode
+  Occlusion mode
+- Dung flowchart theo threshold confidence
+
+Thong diep noi:
+- Day la diem khac biet ky thuat quan trong nhat
+
+
+Slide 10. Module D+E: Zone mapping va HIL hardware
+Text bullet:
+- Map centroid -> luoi LED 8x8
+- 3 muc suppression theo Z
+- Hold-time anti-flicker
+- Arduino Uno + LED 1588AURG
+- Serial packet: BOX:c1:c2:r1:r2
+
+Visual/Layout:
+- 1 anh phan cung that
+- 1 hinh mapping frame -> LED grid -> vung tat
+
+
+Slide 11. Dataset va Golden Test Set
+Text bullet:
+- 11,500 anh tu gan nhan de huan luyen
+- Golden Test Set: 913 frames
+- 5 kich ban: urban, curve, rain, fog/snow, lightning
+- Tap trung vao failure cases
+
+Visual/Layout:
+- Grid 5 anh dai dien 5 kich ban
+- 1 box nhan manh: self-annotated dataset
+
+Thong diep noi:
+- Nhac hoi dong vao cong suc tu lam: dataset, annotation, scenario design
+
+
+Slide 12. Ket qua detection
+Text bullet:
+- Ensemble cai thien Recall trong da so kich ban
+- Lightning: Recall tang manh nhat
+- Curved road va Fog/Snow the hien tinh bo tro giua 2 model
+- Detection duoc toi uu theo safety objective
+
+Visual/Layout:
+- Bar chart cho 3-4 con so dat gia nhat
+- Khong dua nguyen bang lon len slide
+
+
+Slide 13. Ket qua tracking va fusion
+Text bullet:
+- Mean RMSE: 107.8 -> 33.9 px
+- Giam 68.6%
+- Quỹ dao on dinh hon trong dropout
+- Kalman 3D giup duy tri continuity khi mat vision
+
+Visual/Layout:
+- 1 do thi trajectory dep nhat
+- 1 o nho highlight RMSE reduction
+
+Thong diep noi:
+- Pseudo-Radar khong de lam dep 2D, ma de giu lien tuc 3D
+
+
+Slide 14. Ket qua GSSR + ablation
+Text bullet:
+- GSSR trung binh: 93.1%
+- Lightning: 34.7% -> 99.2%
+- +KF cai thien on dinh
+- +Pseudo-Radar tao buoc nhay lon nhat ve GSSR
+- Sensor fusion 3D la dong gop quyet dinh
+
+Visual/Layout:
+- Trai: bar chart GSSR cua 3 cau hinh
+- Phai: bang ablation rut gon
+- Highlight kich ban lightning
+
+
+Slide 15. Demo HIL
+Text bullet:
+- Case 1: hoat dong binh thuong
+- Case 2: camera bi glare / dropout
+- Baseline: LED co the bat lai hoac flicker
+- AuraBeam: suppression giu lien tuc
+- Chung minh anti-flicker trong vong lap phan cung
+
+Visual/Layout:
+- 4 frame cat tu video demo
+- Neu duoc, nhung video ngan 20-30s
+
+
+Slide 16. Ket luan + han che + huong phat trien
+Text bullet:
+- Dong gop: ensemble AI + fusion 3D + GSSR + HIL
+- Hieu qua tot nhat trong tinh huong nguy hiem nhat
+- Han che: CV model, LED 8x8, single-target
+- Huong phat trien: mmWave radar, Jetson, multi-target
+
+Visual/Layout:
+- 3 cot: Takeaway / Limitation / Future Work
+
+
+3. KICH BAN DEMO PHAN CUNG
+
+Phuong an nen dung:
+- Quay video truoc, mang theo phan cung that de backup
+
+Cach quay video:
+- Goc 1: thay ro camera va nguon sang doi dien
+- Goc 2: thay ro LED matrix phan ung
+- Overlay thong tin:
+  Input frame
+  Detection box
+  Suppression grid
+  Confidence
+  Mode: Full / Occlusion
+
+Trinh tu demo:
+1. Binh thuong: xe doi dien xuat hien, LED tat dung vung
+2. Tang glare manh: camera saturate, detection mat
+3. Baseline: LED bat lai hoac nhap nhay
+4. AuraBeam: LED van giu suppression on dinh
+5. Ket luan: he thong giai quyet failure mode nguy hiem nhat
+
+Neu demo truc tiep:
+- Dat phong toi vua du
+- Chuan bi nguon sang manh gia lap headlight
+- Dat LED matrix de hoi dong nhin ro
+- Mo song song man hinh realtime detection
+- Luon co video offline de du phong loi COM, driver, anh sang
+
+Muc tieu phai chung minh:
+- LED khong flicker
+- Mat detection nhung van giu suppression
+- Co su khac biet ro giua baseline va AuraBeam
+
+
+4. NHUNG LUU Y SONG CON TAI HOI DONG
+
+Loi cam ky khi lam slide:
+- Khong dung qua 2 font
+- Khong dung nen mau roi
+- Khong de chu nho hon 24pt
+- Khong nhet code snippet dai
+- Khong chup nguyen bang LaTeX dua len slide
+- Khong nhieu mau nhan khong can thiet
+- Khong dua qua nhieu cong thuc trong 1 slide
+- Khong doc lai nguyen van slide
+
+Cach huong hoi dong vao contribution tu lam:
+- Nhac lai bo du lieu 11,500 anh tu gan nhan
+- Nhac Golden Test Set 5 kich ban doi khang
+- Nhac GSSR la metric do nhom de xuat
+- Nhac HIL platform va hardware setup tu xay dung
+- Nhac logic switch mode khi occlusion
+
+Cau dan nen dung:
+- Tinh moi khong nam o viec phat minh YOLO moi
+- Tinh moi nam o kien truc an toan fail-safe cho ADB
+- Dong gop chinh la ket noi AI voi actuator va danh gia end-to-end
+- Neu chi dung mAP thi chua phan anh dung chat luong he thong den matrix
+
+Neu hoi dong hoi "YOLO co gi moi?":
+- De tai khong nham de xuat backbone detector moi
+- Tinh moi nam o sensor fusion 3D trong vung mu camera
+- Tinh moi nam o GSSR va HIL evaluation
+- Tinh moi nam o cach xu ly failure mode thuc te cua ADB
+
+Phan bo thoi gian noi:
+- 3 phut dau: van de, gap, dong gop
+- 7-8 phut giua: architecture + 2 diem ky thuat chinh
+- 4-5 phut sau: ket qua + demo
+- 1-2 phut cuoi: ket luan + han che
+
+Cau chot cuoi:
+- Dong gop quan trong nhat cua AuraBeam la bien mot detector de that bai duoi glare thanh mot he thong dieu khien den co kha nang duy tri an toan trong vung mu camera.
