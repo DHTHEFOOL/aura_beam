@@ -38,6 +38,7 @@ desktop.ini
 *.synctex.gz
 *.toc
 report.pdf
+report/*.tex
 
 # Model weights and runtime outputs
 model/*.pt
