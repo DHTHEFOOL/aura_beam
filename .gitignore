@@ -46,16 +46,24 @@ demo_video/
 comparision_3_models/
 ensemble_metric/
 single_metric/
+artifacts/results*/
+artifacts/tables/*.csv
+artifacts/metrics/
+artifacts/figures/
 metrics*.json
 per_frame_metrics*.csv
 model_comparison_metrics*.json
 model_comparison_per_class*.csv
 
 # Local datasets / extracted frames
+fogging_1/
 night_1/
 norm_1/
 norm_2/
 rain_1/
+rain_2/
+rain_3/
+rain_4/
 snow_1/
 snow_12/
 thunder_1/

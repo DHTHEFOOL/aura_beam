@@ -1,0 +1,1533 @@
+%Version 3.1 December 2024
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-chicago.bst%  
+ 
+%%\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+\usepackage{subcaption}
+\usepackage{adjustbox}
+\usepackage{multicol,multirow}
+\usepackage{placeins}
+\usepackage{tabularx}
+%%%%
+
+\newcommand{\safegraphic}[2][\linewidth]{%
+  \IfFileExists{#2}{%
+    \includegraphics[width=#1]{#2}%
+  }{%
+    \fbox{%
+      \parbox[c][0.18\textheight][c]{0.9\linewidth}{%
+        \centering
+        Placeholder image\\
+        \texttt{#2}%
+      }%
+    }%
+  }%
+}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+
+\title[Robust Nighttime Vehicle Localization Under Headlight Saturation via Ensemble Detection and Adaptive 3-D Tracking]{Robust Nighttime Vehicle Localization Under Headlight Saturation via Ensemble Detection and Adaptive 3-D Tracking}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author[1]{\fnm{Nguyen Van} \sur{Huan}}
+\email{huan.nv2416500@sis.hust.edu.vn}
+\author[1]{Duong Tan Minh}
+\author[1]{Vu Van Giang}
+\author[1]{Nguyen Thanh Kien}
+\author[1]{Dang Quang Huy}
+\author*[1]{Ho Viet Duc Luong}
+\email{luonghvd@soict.hust.edu.vn}
+
+\affil[1]{\orgdiv{School of Information and Communications Technology}, \orgname{Hanoi University of Science and Technology}, \orgaddress{\street{1 Dai Co Viet Street}, \city{Hanoi}, \postcode{100000}, \country{Vietnam}}}
+
+
+%%==================================%%
+%% Sample for unstructured abstract %%
+%%==================================%%
+
+\abstract{Camera-centric adaptive driving beam (ADB) pipelines become fragile when severe headlight glare or weather-induced saturation degrades the front camera. This paper studies a narrow but safety-relevant question: whether adaptive observation switching in a low-cost closed-loop ADB pipeline improves actuation-level robustness beyond a fixed 3-D observation model when the detector stack and control logic are otherwise held constant. AuraBeam combines an ensemble YOLO detector, a Pseudo-Radar depth surrogate, a 3-D Kalman filter, and an Arduino-driven $8\times8$ LED Hardware-in-the-Loop platform. The final evaluation uses a pre-specified five-case protocol with two negative controls (a mountain curve at night and an urban night scene with street lighting), two targeted degradation cases (fog and lightning-related exposure disruption), and one limitation case (rain). Primary metrics are occlusion-window Glare Suppression Success Rate (GSSR), occlusion missed glare rate, and occlusion false darkening rate. We compare B3 (KF3D with fixed observation) against B4 (adaptive switching) under a fixed policy (\texttt{best\_conf}, $\tau_{\mathrm{conf}}=0.35$, two consecutive low-confidence frames) over five repeated offline replays per scenario. Results indicate scenario-dependent behavior rather than universal superiority: B4 matches B3 in the fog and lightning-related degradation cases, preserves the negative controls, but underperforms in the rainy-night limitation case. These findings support adaptive switching as a scenario-dependent robustness mechanism rather than as a universal replacement for fixed observation.}
+
+%%================================%%
+%% Sample for structured abstract %%
+%%================================%%
+
+% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
+
+\keywords{adaptive driving beam, nighttime vehicle localization, hardware-in-the-loop, Kalman filtering, glare suppression}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+%% ==============================================================
+
+Nighttime driving constitutes a disproportionately hazardous operating
+condition for road users. Although nighttime traffic volume is
+substantially lower than its daytime counterpart, severe crashes occur
+more frequently at night, and glare from oncoming headlights is widely
+recognized as a major contributor to degraded visual
+performance~\cite{fhwa2025nightvisibility,hwang2018headlightglare,beard2025glarelitreview}.
+This challenge has motivated the development of intelligent front-lighting systems that seek to preserve the host driver's visibility while
+reducing glare exposure for other road users. In particular, \emph{Adaptive Driving Beam} (ADB) systems selectively suppress only the portion of the high beam that would dazzle an oncoming vehicle, thereby retaining as much useful illumination as possible outside the affected zone~\cite{Neumann2014ADB,Shin2026DOE_AFS}.
+
+From a computer-vision perspective, however, ADB is not merely a lighting problem. It is a closed-loop perception-and-actuation task in which the system must first localize the relevant oncoming road user in the image, then translate that localization into a beam-suppression pattern on a discrete headlight actuator. This coupling introduces a practical failure mode that remains insufficiently addressed in the literature: when the front-facing camera is exposed to intense oncoming headlights, blooming, flare, specular reflection, and rapid auto-exposure adaptation can severely degrade the visual signal. In the
+most adverse cases, the detector output becomes unstable or vanishes entirely, causing the suppression region to flicker or disappear altogether. As a
+result, a camera-centric ADB pipeline may fail precisely in the regime where robust localization is most safety-critical.
+
+This limitation highlights a broader gap between mainstream object detection and the requirements of perception-guided beam control. Recent nighttime vehicle detection studies have demonstrated that low-light driving scenes differ fundamentally from daytime imagery: salient visual evidence is often concentrated in sparse, high-intensity headlight regions rather than in stable object texture or contour structure.
+Accordingly, recent approaches have explored specialized feature design, headlight-aware modeling, and highlight-guided attention to improve nighttime vehicle detection under challenging illumination conditions \cite{zhang2024vision,lashkov2025machine,song2025highlightnet}.
+At the same time, the automotive perception literature has increasingly
+demonstrated the value of radar--camera fusion for maintaining robust
+localization when vision alone becomes unreliable, particularly under
+adverse weather, darkness, and low-visibility
+conditions~\cite{yao2023radar,deng2025advances,xiao2025radar}.
+Yet these two strands of work are rarely brought together in the specific context of ADB, where the goal is not general scene understanding, but stable continuation of the suppression zone during brief periods of visual collapse. A second limitation of existing work is methodological. Most vision papers evaluate nighttime detection in pixel space using standard metrics such as Precision, Recall, and mAP, whereas automotive lighting studies emphasize photometric or regulatory performance. For perception-driven matrix headlight control, neither perspective alone is
+fully sufficient. Small image-space localization errors may map to incorrect LED cells, producing either residual glare or unnecessary darkening. Moreover, image-level detection scores do not directly capture whether a downstream suppression actuator behaves correctly during transient detector dropout. This motivates the need for an
+evaluation protocol that links perception robustness to actuation fidelity in a reproducible closed-loop setting.
+
+To address these gaps, we propose  \textbf{AuraBeam}, an end-to-end nighttime vehicle localization and glare-suppression framework designed for camera-centric ADB under headlight saturation. Rather than treating
+nighttime detection as an isolated image-space task, AuraBeam combines detection, adaptive tracking, and physical actuation into a unified pipeline. First, an ensemble vision module executes YOLOv5 and YOLOv8 in parallel and fuses their predictions using Weighted Non-Maximum
+Suppression, improving robustness under blooming and adverse illumination. Second, a six-state 3-D Kalman filter integrates the
+image-space observations with a physics-based depth surrogate (Pseudo-Radar) and switches to a radar-only observation mode during
+camera degradation, allowing the suppression trajectory to be propagated through short intervals of visual dropout. Third, the framework is validated in a compact Hardware-in-the-Loop (HIL) environment and evaluated using a new actuation-level metric, the \emph{Glare Suppression Success Rate} (GSSR), which measures suppression fidelity on the LED grid rather than exclusively in pixel space.
+
+The main contributions of this work are as follows:
+\begin{itemize}
+    \item \textbf{A reproducible closed-loop ADB research stack for glare degradation studies.}
+    We design a dual-model YOLO front-end in which YOLOv5 and YOLOv8 are executed in parallel and fused by Weighted Non-Maximum Suppression, then coupled with Pseudo-Radar depth, 3-D tracking, and LED-grid actuation in a single Hardware-in-the-Loop pipeline.
+
+    \item \textbf{Adaptive 3-D tracking under temporary visual collapse.}
+    We introduce a six-state 3-D Kalman filtering framework that fuses image-space detections with a physics-based depth surrogate and can switch its observation model when the camera signal becomes unreliable. The final study isolates this switching mechanism by comparing a fixed-observation variant against an adaptive variant under a pre-specified protocol.
+
+    \item \textbf{Actuation-aware evaluation in a closed-loop HIL setting.}
+    We formulate the \emph{Glare Suppression Success Rate (GSSR)} as an LED-grid-based metric for evaluating downstream suppression quality, and we construct a reproducible five-case evaluation protocol that explicitly separates negative controls, targeted degradation cases, and a limitation case.
+\end{itemize}
+
+Overall, this work aims to bridge three research areas that are typically studied in isolation: nighttime vehicle detection, robust tracking and fusion under degraded sensing, and intelligent headlight actuation. By
+focusing on the specific failure mode of \emph{glare-induced detection collapse}, we demonstrate that improving camera-centric ADB requires not only better detection, but also graceful localization continuity and actuation-aware evaluation.
+The remainder of this paper is organized as follows.
+Section~\ref{sec:related} reviews the relevant literature and positions the proposed work within recent advances in nighttime vehicle detection, sensor fusion, and intelligent headlight systems.
+Section~\ref{sec:method} details the proposed AuraBeam framework.
+Section~\ref{sec:eval} presents the evaluation protocol, datasets, and performance metrics.
+Section~\ref{sec:results} reports and analyzes the experimental results.
+Finally, Section~\ref{sec:conclusion} summarizes the main findings and
+outlines directions for future work.
+
+\section{Background and Related Work}
+\label{sec:related}
+%% ==============================================================
+
+% \subsection{Adaptive Driving Beam Systems}
+% \label{subsec:adb}
+
+Adaptive and intelligent headlight systems have evolved from simple Auto High Beam (AHB) switching toward spatially selective beam shaping that preserves forward visibility while reducing glare exposure for other road users. A recent review by Nkrumah \emph{et al.} identifies camera-based scene understanding, rule-based beam modulation, and adaptive intensity
+control as the dominant paradigm in intelligent headlight systems~\cite{nkrumah2024review}. In parallel, recent optical and regulatory studies have emphasized that production ADB/AFS designs must satisfy not only visibility requirements but also strict glare-compliance constraints under ECE-R123-like frameworks~\cite{shin2026optimization}. These developments confirm that modern headlight control is no longer a purely mechanical or optical problem; it is increasingly a perception-and-control problem in which the quality of the front-facing vision stack directly determines beam-selection safety.
+Despite this progress, most deployed and prototype ADB pipelines remain
+fundamentally \emph{camera-centric}: an oncoming vehicle is first detected
+in the image plane, after which a suppression mask or beam cut-off region is generated for a segmented LED or pixelated headlamp. This architecture performs well under moderate nighttime conditions, but becomes fragile when the camera is saturated by strong oncoming headlights, specular reflections, or abrupt exposure changes. A recent UK literature review on vehicle-lighting glare further reinforces that glare remains an unresolved practical safety issue influenced by light source intensity, headlamp aim, road geometry, vehicle height, and retrofitted lighting
+configurations~\cite{beard2025glarelitreview}. Thus, while recent literature has improved the design of adaptive beam systems, a key systems-level gap remains: how to maintain glare suppression when the vision channel itself
+temporarily collapses.
+
+% \subsection{Nighttime Vehicle Detection Under Blooming and Highlight Saturation}
+% \label{subsec:detection}
+
+Nighttime vehicle detection is substantially more challenging than daytime detection because the scene is dominated by sparse, high-intensity light
+sources rather than stable object texture. In such conditions, blooming, flare, reflection, and exposure adaptation distort the apparent spatial extent of the headlights and often erase the geometric contours of the vehicle body. Recent work has therefore moved beyond generic daytime detectors toward methods that explicitly exploit nighttime-specific
+appearance cues. For example, Zhang \emph{et al.} proposed an improved HOG-based framework for on-road nighttime vehicle detection and tracking, demonstrating that handcrafted structural cues can still be effective when illumination is poor and vehicle contours are weak~\cite{zhang2024vision}.
+More recently, Lashkov \emph{et al.} developed a learning-based pipeline that couples headlight extraction with low-illumination tracking, further highlighting that vehicle lights themselves become the dominant visual
+carrier in dark scenes~\cite{lashkov2025machine}.
+Deep models have also begun to incorporate this observation explicitly. HighlightNet, introduced by Song \emph{et al.} \cite{song2025highlightnet}, formulates nighttime vehicle detection as a dual-branch problem that jointly reasons about vehicle presence and highlight regions, using highlight-guided attention to direct the detector toward the most informative luminous structures. These recent studies collectively suggest an important shift in the literature: nighttime detection should not be treated as a simple low-light variant of daytime detection, but as a distinct visual regime in which the detector must reason under partial loss of texture, extreme local saturation, and ambiguous light-source morphology.
+However, most of these methods still evaluate performance primarily in pixel space, using standard detection metrics such as Precision, Recall, or mAP. For ADB control, this is only part of the problem. A detector may remain acceptable in pixel space while still producing unstable or misaligned suppression decisions once mapped onto a discrete LED grid. Moreover, many nighttime detection papers focus on \emph{detecting} vehicles, whereas ADB requires \emph{persistent localization} across short intervals of visual degradation. This distinction motivates our use of a
+dual-model detector and an actuation-aware downstream evaluation, rather
+than relying on detection performance alone.
+
+% \subsection{Trajectory Tracking and Radar--Camera-Inspired Fusion}
+% \label{subsec:kf}
+
+Tracking plays a central role whenever detections are intermittent, noisy, or partially missing. Classical state estimators such as the Kalman filter (KF) remain attractive because they provide a lightweight and interpretable mechanism for propagating object state through short periods of observation loss. Yet, in automotive perception, the more important recent trend is not simply filtering, but \emph{multimodal
+fusion}. A comprehensive review by Yao \emph{et al.} shows that radar--camera fusion has become a major paradigm for autonomous-driving perception because cameras provide rich semantics while radar offers
+depth and motion cues that are far more robust to darkness, adverse weather, and poor illumination~\cite{yao2023radar}. Recent
+surveys likewise emphasize that multimodal fusion improves robustness precisely in the regimes where camera-only perception is most fragile \cite{qian2025review}.
+Recent fusion methods span feature-level, decision-level, and geometric fusion designs. Deng \emph{et al.} review recent radar--camera object detection advances for autonomous driving and note that the two modalities are complementary in both sensing physics and failure characteristics~\cite{deng2025advances}. Xiao \emph{et al.} \cite{xiao2025radar} further show that combining perspective-view and bird's-eye-view cues improves 3-D object detection performance, highlighting that depth-aware fusion is increasingly central to robust vehicle localization. Even when full radar hardware is unavailable, these studies still motivate a key design principle: \emph{localization should not depend exclusively on the optical channel}
+when the target application is safety-critical and must operate under glare, rain, or low-light perturbations.
+At the same time, the specific fusion problem in ADB is more constrained than that in general autonomous driving. The objective is not full-scene 3-D understanding, but reliable continuation of the suppression region for
+the most relevant oncoming light source over short time horizons. This creates two unique requirements. First, when the camera becomes saturated,
+the image-plane coordinates become weakly observed or unobservable. Second, any auxiliary depth signal must fail independently from the camera; otherwise, both modalities collapse under the same glare event. Our design follows the logic of the radar--camera fusion literature, but in a cost-constrained form: we combine image-space detections with a physics-based depth surrogate and switch to a radar-only observation model during visual dropout. In this sense, our method is not intended to replace full radar--camera fusion, but to instantiate its robustness principle in an ADB-specific and low-cost setting.
+
+% \subsection{Hardware-in-the-Loop and Vision-System Validation}
+% \label{subsec:hil}
+
+A second gap in the literature concerns \emph{how} intelligent headlight systems are evaluated. Traditional automotive lighting studies often rely
+on photometric bench tests, regulatory compliance analysis, or expensive on-road experiments, whereas computer-vision papers typically stop at image-space metrics. For systems such as ADB, neither perspective is fully sufficient: the former underrepresents perception failure modes, while the latter may ignore the downstream consequences of localization errors on actual beam actuation.
+Recent validation literature increasingly advocates testbench-based hardware-in-the-loop (HIL), software-in-the-loop (SIL), and vehicle-in-the-loop (VIL) methodologies for ADAS and autonomous-vehicle
+development \cite{cheng2024survey, langer2026vehicle,balan2025perspective}. Cheng \emph{et al.} survey VIL simulation testing for autonomous vehicles and emphasize its role in bridging pure simulation and costly full-road experiments through repeatable, physically grounded
+testing setups~\cite{cheng2024survey}. More recently, Langer \emph{et al.} demonstrate a VIL framework specifically for front-camera verification using adaptive high beam, underscoring the growing need for
+reproducible evaluation of perception-dependent lighting functions~\cite{langer2026vehicle}. Broader recent perspectives on SIL/HIL in automotive testing also argue that closed-loop virtual--physical validation is increasingly necessary as perception, control, and embedded implementation become tightly coupled~\cite{balan2025perspective}.
+
+These developments strongly support the use of a compact HIL platform in our setting. However, existing VIL/HIL work on lighting is still primarily concerned with functional verification or platform-level testing, and is much less focused on the specific computer-vision failure mode in which glare destroys the observation required to maintain the beam
+suppression mask. Our HIL framework is designed to address exactly this gap. By coupling the perception stack, the adaptive tracking logic, and a physical LED actuation layer, it enables evaluation at the level that ultimately matters for ADB control: whether the correct suppression zone is maintained in the presence of brief but safety-critical visual collapse. This is also why we later introduce an actuation-level metric
+rather than relying exclusively on conventional detection scores.
+
+% \subsection{Summary of the Literature Gap}
+% \label{subsec:gap_summary}
+
+In summary, recent literature has made clear progress in four directions: adaptive headlight control \cite{nkrumah2024review,shin2026optimization}, nighttime vehicle detection under challenging illumination conditions \cite{zhang2024vision,lashkov2025machine,song2025highlightnet}, radar--camera fusion for robust automotive
+perception~\cite{yao2023radar,deng2025advances,xiao2025radar}, and HIL/VIL validation for intelligent vehicle
+systems~\cite{cheng2024survey,langer2026vehicle,balan2025perspective}. Yet the intersection of these strands remains underexplored. In particular, the literature still lacks a low-cost, end-to-end framework that
+addresses \emph{glare-induced detection collapse} in camera-centric ADB, maintains localization through short periods of observation loss, and evaluates the result at the level of discrete headlight actuation rather than only in pixel space. Our work is intended to fill this gap.
+
+%% ==============================================================
+\section{System Methodology}
+\label{sec:method}
+%% ==============================================================
+
+\subsection{System Overview}
+\label{subsec:overview}
+
+Figure~\ref{fig:tong_quat} presents the overall AuraBeam pipeline. The system is organized as a closed-loop perception-to-actuation process comprising five modules: (A) an ensemble vision front-end for nighttime vehicle detection, (B) a physics-based depth surrogate referred to as Pseudo-Radar, (C) an adaptive 3-D Kalman filtering module for state estimation under partial observation loss, (D) a zone-mapping and anti-flicker controller that converts the estimated target state into a discrete suppression pattern, and (E) a hardware actuation layer based on an Arduino-driven LED matrix.
+
+Unlike a conventional camera-only ADB pipeline, AuraBeam is designed to preserve localization continuity when the image stream becomes unreliable due to blooming, exposure disruption, or severe glare. The detector provides image-plane observations when confidence is sufficient, whereas the state estimator continues propagating the suppression trajectory during short intervals of visual collapse by relying on its internal motion model and the auxiliary depth signal. The output of this estimation stage is then translated into a suppression region on an $8\times8$ LED grid and sent to the hardware layer for real-time actuation.
+
+\begin{figure*}[t]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \safegraphic[\textwidth]{flow_charts/yolo_base.png}
+        \caption{YOLO-only baseline pipeline.}
+        \label{fig:anh_1}
+    \end{subfigure}
+    \hspace{2cm}
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \safegraphic[\textwidth]{flow_charts/aurabeam.drawio.png}
+        \caption{AuraBeam full system pipeline.}
+        \label{fig:anh_2}
+    \end{subfigure}
+    \caption{Architectural comparison between the YOLO-only baseline pipeline and the proposed AuraBeam pipeline.}
+    \label{fig:tong_quat}
+\end{figure*}
+
+To realize the Hardware-in-the-Loop (HIL) setup, we employ a low-cost peripheral hardware stack consisting of an Arduino Uno R3, an $8\times8$ LED matrix, a USB camera, and a serial communication interface. The processing unit executes the perception and filtering modules, while the microcontroller serves as the physical actuation layer. As summarized in Table~\ref{tab:bom}, the total peripheral cost is approximately \$23, excluding the host computer. This compact implementation is intended as a reproducible experimental platform rather than a production-grade automotive lighting system.
+
+\begin{table}[t]
+\centering
+\caption{Hardware bill of materials.}
+\label{tab:bom}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llr}
+\hline
+\textbf{Component} & \textbf{Specification} & \textbf{Est. Cost (USD)} \\
+\hline
+Processing unit & PC or laptop with discrete GPU & --- \\
+Microcontroller & Arduino Uno R3 & \$5 \\
+LED matrix & 1588BS $8\times8$ module & \$1 \\
+Camera & USB 1080p webcam or dashcam & \$15 \\
+Serial interface & USB-A to USB-B cable & \$2 \\
+\hline
+\textbf{Total} & & \textbf{\$23} \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+For clarity, Table \ref{tab:notations} summarizes the main symbols and notations used throughout this paper.
+
+\begin{table}[t]
+\centering
+\caption{Main symbols and notations.}
+\label{tab:notations}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{ll}
+\hline
+\textbf{Symbol} & \textbf{Description} \\
+\hline
+$I_t$ & Input frame at time $t$ \\
+$\mathcal{M}_1, \mathcal{M}_2$ & Detection models in the ensemble pipeline \\
+$\mathcal{D}_i$ & Detection set produced by model $\mathcal{M}_i$ \\
+$b_j=[c_x,c_y,w,h]^\top$ & Bounding box in center-width-height format \\
+$s_j$ & Confidence score of a detection \\
+$\hat{b}, \hat{s}$ & Fused bounding box and fused confidence score \\
+$\mathbf{d}_t$ & Image-space observation vector at time $t$ \\
+$\mathbf{x}_k$ & 3-D Kalman filter state vector at step $k$ \\
+$\mathbf{F}$ & State transition matrix \\
+$\mathbf{Q}$ & Process noise covariance matrix \\
+$\mathbf{H}_{\mathrm{full}}$ & Observation matrix in full-observation mode \\
+$\mathbf{H}_{\mathrm{occ}}$ & Observation matrix in occlusion-aware mode \\
+$\mathbf{R}_{\mathrm{full}}$ & Measurement covariance in full-observation mode \\
+$\mathbf{R}_{\mathrm{occ}}$ & Measurement covariance in occlusion-aware mode \\
+$Z(t)$ & Pseudo-Radar depth prior at time $t$ \\
+$\mathcal{B}_t$ & Suppression region on the LED grid at time $t$ \\
+$\mathbf{G}_t$ & Output LED suppression grid at time $t$ \\
+$\tau_{\mathrm{NMS}}$ & IoU threshold for Weighted NMS \\
+$\tau_{\mathrm{conf}}$ & Confidence threshold for observation switching \\
+$T_h$ & Hysteresis hold-time window \\
+\hline
+\end{tabular}
+}
+\end{table}
+\clearpage
+\subsection{Module A: Ensemble YOLO Vision Pipeline}
+\label{subsec:yolo}
+
+The first stage of AuraBeam performs nighttime vehicle detection using an ensemble of two complementary object detectors. Let $I_t$ denote the input frame at time $t$. Two models, denoted $\mathcal{M}_1$ and $\mathcal{M}_2$, are executed in parallel on $I_t$. The first model is specialized for high-glare headlight patterns, whereas the second is trained on a broader nighttime vehicle dataset to improve generalization across diverse scene structures and vehicle appearances.
+
+Each model produces a set of detections $\mathcal{D}_i = \{(b_j, s_j)\}_{j=1}^{N_i}$, where $b_j = [c_x, c_y, w, h]^\top$ is a bounding box in center-width-height format and $s_j \in [0,1]$ is the associated confidence score. Because the two detectors are trained on purposefully different data distributions, their outputs are expected to be complementary, particularly under low-light conditions in which one detector may better preserve light-source sensitivity while the other more effectively captures vehicle shape cues.
+
+To combine the predictions, AuraBeam applies Weighted Non-Maximum Suppression (Weighted NMS). For two overlapping detections $(b_a, s_a)$ and $(b_b, s_b)$ that satisfy $\mathrm{IoU}(b_a, b_b) \geq \tau_{\mathrm{NMS}}$, the fused bounding box $\hat{b}$ and fused confidence $\hat{s}$ are computed as
+
+\begin{equation}
+\hat{b} = \frac{w_1 s_a b_a + w_2 s_b b_b}{w_1 s_a + w_2 s_b},
+\label{eq:nms_box}
+\end{equation}
+
+\begin{equation}
+\hat{s} = \frac{w_1 s_a + w_2 s_b}{w_1 + w_2},
+\label{eq:nms_score}
+\end{equation}
+where $w_1, w_2 \in \mathbb{R}_{>0}$ are detector-specific weights selected on the validation set, and $\tau_{\mathrm{NMS}}$ is fixed to $0.5$. The output of Module A at frame $t$ is the image-space observation vector
+
+\begin{equation}
+\mathbf{d}_t = [c_x, c_y, w, h, \hat{s}]^\top \in \mathbb{R}^5.
+\label{eq:det_vec}
+\end{equation}
+
+This representation retains both geometric information and a confidence signal that is later used by the adaptive observation logic in the Kalman filter.
+
+\subsubsection*{Training Configuration}
+\label{subsubsec:training}
+
+The two detectors are trained independently in order to maximize feature diversity.
+
+\paragraph{Model $\mathcal{M}_1$ (YOLOv5).}
+Model $\mathcal{M}_1$ is trained on a custom manually annotated dataset of 5{,}500 images emphasizing high-glare headlight regions. Training is performed with an input resolution of $1024\times1024$, a batch size of 16, and a maximum of 100 epochs. Early stopping with patience 30 is used to reduce overfitting.
+
+\paragraph{Model $\mathcal{M}_2$ (YOLOv8).}
+Model $\mathcal{M}_2$ is fine-tuned on a second in-house dataset containing 6{,}000 manually annotated images. This model is trained for 100 epochs with an input resolution of 1024 and batch size 16. To improve robustness under nighttime imaging variability, the training pipeline includes Mosaic, MixUp, Copy-Paste, random scaling, HSV-based appearance perturbation, small-angle rotation, and weak perspective augmentation.
+
+After training, the ensemble weights $w_1$ and $w_2$ in Eqs.~\eqref{eq:nms_box} and \eqref{eq:nms_score} are selected on the validation split to optimize downstream detection performance.
+
+\subsection{Module B: Pseudo-Radar Depth Estimation}
+\label{subsec:radar}
+
+A key requirement of AuraBeam is to maintain target localization when the visual signal temporarily degrades. Instead of introducing a dedicated physical radar or LiDAR sensor, which would increase hardware cost and integration complexity, we construct a lightweight auxiliary depth signal termed \emph{Pseudo-Radar}. This signal is not intended to replace real range sensing; rather, it provides a simple depth prior that remains independent of instantaneous image brightness and can therefore continue to evolve during visual saturation.
+
+Assuming that the oncoming vehicle follows an approximately constant approach velocity over short time intervals, the estimated range at time $t$ is defined as
+
+\begin{equation}
+Z(t) = Z_0 - v_{\mathrm{app}} t,
+\label{eq:radar_z}
+\end{equation}
+where $Z_0$ is the initial range estimated at first acquisition and $v_{\mathrm{app}}$ is the relative approach velocity. Since $Z(t)$ is propagated analytically from the initial condition and elapsed time, it is unaffected by camera glare or short-term detector failure.
+
+The approximation in Eq.~\eqref{eq:radar_z} is accurate only when the relative motion is close to constant velocity. If the true longitudinal acceleration is $a_{\mathrm{real}} \neq 0$, then the actual range evolves as
+
+\begin{equation}
+Z_{\mathrm{true}}(t) = Z_0 - v_{\mathrm{app}} t - \frac{1}{2} a_{\mathrm{real}} t^2,
+\label{eq:radar_true}
+\end{equation}
+and the resulting depth estimation error is
+\begin{equation}
+\Delta Z(t) = Z(t) - Z_{\mathrm{true}}(t) = -\frac{1}{2} a_{\mathrm{real}} t^2.
+\label{eq:depth_error}
+\end{equation}
+
+This error grows quadratically with time. For example, under moderate braking with $a \approx -0.5g$, the absolute depth error reaches approximately $2.45$\,m after one second of occlusion; under stronger braking with $a \approx -0.9g$, it may reach approximately $4.4$\,m. Consequently, the Pseudo-Radar module should be interpreted as a low-cost temporal depth surrogate suitable for short dropout intervals, not as a substitute for production-grade radar sensing.
+
+\subsection{Module C: Adaptive 3-D Kalman Filter}
+\label{subsec:kf_fusion}
+
+\subsubsection{State Representation and Motion Model}
+
+To integrate image-plane localization with the auxiliary depth signal, AuraBeam maintains a six-dimensional state vector
+
+\begin{equation}
+\mathbf{x}_k = [c_x, \dot{c}_x, c_y, \dot{c}_y, Z, \dot{Z}]^\top \in \mathbb{R}^6,
+\label{eq:state}
+\end{equation}
+
+where $(c_x, c_y)$ denote the image-space centroid of the target, $(\dot{c}_x, \dot{c}_y)$ are the corresponding image-plane velocities, and $(Z, \dot{Z})$ represent depth and longitudinal velocity. A constant-velocity state transition model is used:
+
+\begin{equation}
+\mathbf{F} =
+\begin{bmatrix}
+1 & \Delta t & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & \Delta t & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & \Delta t \\
+0 & 0 & 0 & 0 & 0 & 1
+\end{bmatrix},
+\label{eq:F_matrix}
+\end{equation}
+where $\Delta t = 33.3$ ms is the frame interval. The process noise covariance is initialized as
+\begin{equation}
+\mathbf{Q} = \sigma_q^2 \mathbf{I}_6,
+\label{eq:Q_matrix}
+\end{equation}
+with $\sigma_q^2 = 0.01$, which was selected empirically to absorb small deviations from ideal constant-velocity motion.
+
+\subsubsection{Observation Models}
+
+AuraBeam operates in two observation modes depending on the detector confidence.
+
+\paragraph{Mode 1: Full observation.}
+When the detector confidence is sufficiently high, the state is updated using image-plane coordinates and depth. The observation model is
+
+\begin{equation}
+\mathbf{H}_{\mathrm{full}} =
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0
+\end{bmatrix},
+\label{eq:H_full}
+\end{equation}
+with measurement vector
+\begin{equation}
+\mathbf{y}_k^{\mathrm{full}} = [c_x, c_y, Z(t)]^\top.
+\label{eq:y_full}
+\end{equation}
+
+The corresponding measurement noise covariance is
+\begin{equation}
+\mathbf{R}_{\mathrm{full}} = \mathrm{diag}(2.5, 2.5, 0.5),
+\label{eq:R_full}
+\end{equation}
+where the first two terms are measured in px$^2$ and the third term in m$^2$.
+
+\paragraph{Mode 2: Occlusion-aware reduced observation.}
+When the per-frame fused confidence remains below a threshold $\tau_{\mathrm{conf}}$ for $L$ consecutive frames, the image-plane observation is treated as unreliable and the filter updates only the depth component. In the final protocol, the confidence signal is the best fused detection confidence in the current frame, and the temporal guard is fixed to $L=2$ consecutive low-confidence frames. The observation model then becomes
+
+\begin{equation}
+\mathbf{H}_{\mathrm{occ}} =
+\begin{bmatrix}
+0 & 0 & 0 & 0 & 1 & 0
+\end{bmatrix},
+\label{eq:H_occ}
+\end{equation}
+with measurement vector
+\begin{equation}
+\mathbf{y}_k^{\mathrm{occ}} = [Z(t)].
+\label{eq:y_occ}
+\end{equation}
+
+In this mode, the filter relies on the internal motion model to propagate $(c_x, c_y)$ while continuing to anchor the state using the depth prior. To reflect the greater uncertainty under degraded observation, the measurement covariance is inflated as
+\begin{equation}
+\mathbf{R}_{\mathrm{occ}} = 10 \mathbf{R}_{\mathrm{full}}.
+\label{eq:R_occ}
+\end{equation}
+
+Conceptually, this temporally guarded mode switch allows the estimator to preserve short-term localization continuity without trusting unstable image measurements during glare-induced detector collapse, while also avoiding single-frame toggling caused by transient confidence dips.
+
+\subsubsection{Recursive Estimation}
+
+The prediction step is given by
+
+\begin{equation}
+\hat{\mathbf{x}}_{k}^{-} = \mathbf{F}\hat{\mathbf{x}}_{k-1},
+\label{eq:kf_pred_x}
+\end{equation}
+
+\begin{equation}
+\mathbf{P}_{k}^{-} = \mathbf{F}\mathbf{P}_{k-1}\mathbf{F}^{\top} + \mathbf{Q},
+\label{eq:kf_pred_p}
+\end{equation}
+where $\hat{\mathbf{x}}_{k}^{-}$ and $\mathbf{P}_{k}^{-}$ denote the prior state estimate and covariance.
+The Kalman gain is then computed as
+\begin{equation}
+\mathbf{K}_k = \mathbf{P}_{k}^{-}\mathbf{H}^{\top} \left(\mathbf{H}\mathbf{P}_{k}^{-}\mathbf{H}^{\top} + \mathbf{R}\right)^{-1},
+\label{eq:kf_gain}
+\end{equation}
+followed by the update equations
+\begin{equation}
+\hat{\mathbf{x}}_k = \hat{\mathbf{x}}_{k}^{-} + \mathbf{K}_k\left(\mathbf{y}_k - \mathbf{H}\hat{\mathbf{x}}_{k}^{-}\right),
+\label{eq:kf_update_x}
+\end{equation}
+
+\begin{equation}
+\mathbf{P}_k = \left(\mathbf{I} - \mathbf{K}_k\mathbf{H}\right)\mathbf{P}_{k}^{-},
+\label{eq:kf_update_p}
+\end{equation}
+where $(\mathbf{H}, \mathbf{R}, \mathbf{y}_k)$ are selected according to the current observation mode.
+
+\subsubsection{Adaptive Detect-then-Track Procedure}
+
+Algorithm~\ref{alg:main} summarizes the complete inference loop. At each frame, the system first produces a fused image-space observation from the detector ensemble, then computes the Pseudo-Radar depth, predicts the next target state, evaluates the confidence guard, selects the observation mode, updates the state estimate, and finally maps the filtered localization to the LED control grid.
+
+\begin{algorithm}[t]
+\caption{AuraBeam detect-then-track loop with adaptive observation switching}
+\label{alg:main}
+\begin{algorithmic}[1]
+\Require Video stream $\{I_t\}$, thresholds $\tau_{\mathrm{conf}}$ and $\tau_{\mathrm{NMS}}$, approach velocity $v_{\mathrm{app}}$
+\Ensure LED suppression grid $\mathbf{G}_t$ for each frame
+\State Initialize $\hat{\mathbf{x}}_0$, $\mathbf{P}_0$, $\mathbf{Q}$, $\mathbf{R}_{\mathrm{full}}$, and $\mathbf{R}_{\mathrm{occ}}$
+\State Estimate initial range $Z_0$ from the first valid target acquisition
+\For{each frame $t = 1,2,\ldots$}
+    \State Run $\mathcal{M}_1$ and $\mathcal{M}_2$ on $I_t$ to obtain $\mathcal{D}_1$ and $\mathcal{D}_2$
+    \State Fuse detections using WeightedNMS to obtain $\mathbf{d}_t$
+    \State Compute depth prior $Z(t) = Z_0 - v_{\mathrm{app}} t$
+    \State Predict $\hat{\mathbf{x}}^-_t$ and $\mathbf{P}^-_t$ using Eqs.~\eqref{eq:kf_pred_x} and \eqref{eq:kf_pred_p}
+    \If{$\hat{s}_t \geq \tau_{\mathrm{conf}}$ or fewer than $L$ consecutive low-confidence frames have occurred}
+        \State Set $\mathbf{H} \gets \mathbf{H}_{\mathrm{full}}$, $\mathbf{R} \gets \mathbf{R}_{\mathrm{full}}$, and $\mathbf{y}_t \gets \mathbf{y}_t^{\mathrm{full}}$
+    \Else
+        \State Set $\mathbf{H} \gets \mathbf{H}_{\mathrm{occ}}$, $\mathbf{R} \gets \mathbf{R}_{\mathrm{occ}}$, and $\mathbf{y}_t \gets \mathbf{y}_t^{\mathrm{occ}}$
+    \EndIf
+    \State Update $\hat{\mathbf{x}}_t$ and $\mathbf{P}_t$ using Eqs.~\eqref{eq:kf_gain}--\eqref{eq:kf_update_p}
+    \State Map $(\hat{c}_x, \hat{c}_y, \hat{Z})$ to the LED grid to obtain $\mathbf{G}_t$
+    \State Transmit $\mathbf{G}_t$ to the actuation layer
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Module D: Zone Mapping and Anti-Flicker Scheduling}
+\label{subsec:zone}
+
+\subsubsection{Pixel-to-Grid Projection}
+
+The filtered centroid $(\hat{c}_x, \hat{c}_y)$ is projected onto the $8\times8$ LED grid as
+
+\begin{equation}
+g_{\mathrm{col}} = \left\lfloor \frac{\hat{c}_x}{W_{\mathrm{frame}}} \cdot 8 \right\rfloor, \qquad
+g_{\mathrm{row}} = \left\lfloor \frac{\hat{c}_y}{H_{\mathrm{frame}}} \cdot 8 \right\rfloor,
+\label{eq:zone_map}
+\end{equation}
+where $W_{\mathrm{frame}}$ and $H_{\mathrm{frame}}$ are the image width and height. A square suppression region $\mathcal{B}_t$ centered at $(g_{\mathrm{col}}, g_{\mathrm{row}})$ is then formed using a half-width parameter $\delta$ measured in LED cells.
+
+\subsubsection{Depth-Dependent Suppression Policy}
+
+The suppression mode is modulated according to the estimated target range $\hat{Z}$. When the target is far away, no suppression is applied. At intermediate range, a dimmed suppression mode is used. At close range, the selected LED region is fully turned off. The thresholds used in this work are summarized in Table~\ref{tab:z_thresh}.
+
+\begin{table}[t]
+\centering
+\caption{Depth-dependent glare suppression policy.}
+\label{tab:z_thresh}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lll}
+\hline
+\textbf{Estimated range} & \textbf{LED state} & \textbf{Duty cycle} \\
+\hline
+$\hat{Z} \geq 60$ m & No suppression & 100\% \\
+$30 \leq \hat{Z} < 60$ m & Partial suppression & 40\% \\
+$\hat{Z} < 30$ m & Full suppression & 0\% \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\subsubsection{Hysteresis-Based Anti-Flicker Control}
+
+Direct frame-by-frame switching of LED cells can produce visible flicker when the estimated suppression region oscillates near cell boundaries. To stabilize actuation, we apply a temporal hold mechanism whereby a cell remains suppressed if it belonged to the recent suppression history. Formally,
+
+\begin{equation}
+\mathbf{G}_t[r,c] = \mathrm{OFF}
+\quad \text{if} \quad
+\exists \tau \in [t-T_h, t] \ \text{such that} \ (r,c) \in \mathcal{B}_{\tau},
+\label{eq:hysteresis}
+\end{equation}
+where $T_h$ is the hold time expressed in frames. In all experiments, we set $T_h = 5$, corresponding to approximately 167 ms at the operating frame rate. This hysteresis mechanism reduces visible ghosting and prevents rapid toggling of adjacent cells during short-term localization jitter.
+
+\subsection{Module E: Hardware Actuation Layer}
+\label{subsec:hw}
+
+The final suppression pattern is transmitted to an Arduino Uno, which scans the LED matrix using row-column multiplexing at 200\,Hz. This refresh rate is well above the critical flicker fusion threshold of the human visual system and thus ensures stable visual output. Communication from the host computer uses a 115200-baud serial link with the packet format
+
+\begin{verbatim}
+BOX:<col_start>:<col_end>:<row_start>:<row_end>
+\end{verbatim}
+
+The serial receiver is implemented using an interrupt-driven ring buffer so that packet decoding does not block the timer interrupt responsible for LED scanning. As a result, the actuation layer remains stable even when the upstream perception pipeline exhibits variable inference latency.
+
+\subsection{Implementation Summary}
+\label{subsec:implementation_summary}
+
+In summary, AuraBeam integrates a dual-model nighttime detector, a lightweight depth surrogate, an adaptive 3-D state estimator, and a discrete actuation controller within a single closed-loop HIL framework. The overall design is intended to evaluate a specific failure mode of camera-centric ADB---namely the loss of stable suppression under headlight saturation---while remaining sufficiently simple and reproducible for controlled experimentation.
+
+\section{Evaluation Protocol}
+\label{sec:eval}
+%% ==============================================================
+This section defines the pre-specified protocol used for the final
+evaluation. The protocol is intentionally narrower than the full
+AuraBeam design space. Rather than re-optimizing all modules simultaneously,
+it isolates one question: whether adaptive observation switching
+improves actuation robustness relative to a fixed 3-D observation model
+when the detector ensemble, tracker family, and hold-time controller are
+held constant. The goal is therefore not to demonstrate that B4 universally
+outperforms B3, but to establish a defensible scenario-by-scenario
+boundary for when switching helps, when it is neutral, and when it
+fails.
+
+\subsection{Implementation Details}
+\label{subsec:eval_impl}
+
+All final experiments use the complete AuraBeam pipeline described in
+Section~\ref{sec:method}, but with a single fixed detector and tracker
+stack. The perception front-end is fixed to the dual-model YOLOv5/YOLOv8
+ensemble fused by Weighted NMS. The tracking layer is fixed to the
+six-state KF3D model together with the Pseudo-Radar depth surrogate. The
+actuation layer maps the filtered target state onto an $8\times8$ LED
+grid and applies the hold-time controller of
+Section~\ref{subsec:zone} with $T_h = 5$ frames before transmission to
+the Arduino-based HIL platform.
+
+The final comparison contains only two configurations:
+\begin{itemize}
+    \item \textbf{B3: KF3D fixed observation.} The tracker always uses the full observation model when detections are available.
+    \item \textbf{B4: KF3D adaptive switching.} The tracker falls back to depth-only updates when the best fused detection confidence is below $\tau_{\mathrm{conf}} = 0.35$ for at least two consecutive frames.
+\end{itemize}
+
+The switching policy is the legacy \texttt{best\_conf} policy, and no
+scenario-specific retuning is performed after the protocol is fixed.
+Each scenario is replayed five times (\texttt{run\_01} to
+\texttt{run\_05}) under the same offline configuration. Under this fixed
+replay setting, aggregate actuation metrics are deterministic across the
+five runs; repeated runs are therefore used primarily as a
+reproducibility check and to capture runtime variability, not as
+independent stochastic trials.
+
+\subsection{Evaluation Metrics}
+\label{subsec:eval_metrics}
+
+The evaluation uses three levels of metrics. First, trajectory-level
+metrics quantify temporal stability of the estimated target path.
+Second, control-level metrics quantify whether the final LED
+suppression pattern correctly covers the opposing headlight region.
+Third, runtime metrics quantify the computational overhead of the
+comparison. Because ADB is ultimately an actuation problem, the
+control-level metrics are treated as primary and the others as
+supporting evidence.
+
+\subsubsection{Primary Control-Level Metric}
+% Viết lại theo tổ chức như thế này
+% removed draft placeholder
+% thông số kỹ thuật, máy để train, train như thế nào,...
+% removed draft placeholder
+% các thông số đánh giá$
+% removed draft placeholder
+% xây dựng data set và chọn base line, các kịch bản thực nghiệm 
+% removed draft placeholder
+% thực nghiệm
+% So sánh, ablation studies, phân tích,...
+
+% đây là bản cũ
+% removed draft placeholder
+\label{subsec:gssr}
+
+For a matrix headlight controller, the terminal output is a set of
+discrete LED cells; a small image-space error may therefore map to the
+wrong cell being suppressed, resulting in residual glare or unnecessary
+darkening. A metric defined directly over the LED grid is accordingly
+required. The GSSR metric is introduced to address this gap:
+
+\begin{equation}
+\mathrm{GSSR} = \frac{1}{N} \sum_{t=1}^{N}
+\mathbf{1}\!\left[
+  \mathrm{IoU}_{\mathrm{grid}}\!\left(\hat{\mathcal{B}}_t,\,
+  \mathcal{B}^{*}_t\right) \geq 0.5
+\right],
+\label{eq:gssr}
+\end{equation}
+
+\noindent where $\hat{\mathcal{B}}_t$ is the set of LED cells predicted
+by the system to require suppression at time $t$, and
+$\mathcal{B}^{*}_t$ is the ground-truth set of cells corresponding to
+the actual headlight footprint of the oncoming vehicle on the
+$8 \times 8$ grid. Grid-level IoU is defined as:
+
+\begin{equation}
+\mathrm{IoU}_{\mathrm{grid}}(A,B) =
+\frac{|A \cap B|}{|A \cup B|}.
+\label{eq:grid_iou}
+\end{equation}
+
+In the final analysis, the primary comparison uses an
+\emph{occlusion-window} version of the metric, in which the evaluation
+is restricted to manually annotated degradation intervals. This yields
+the three primary metrics reported later in the results section:
+\emph{occlusion GSSR}, \emph{occlusion missed glare rate}, and
+\emph{occlusion false darkening rate}. For the negative controls, which
+contain no designated degradation interval, the full-sequence metrics
+are reported instead to verify that the protocol does not destabilize
+normal nighttime operation.
+
+\subsection{Supplementary Metrics}
+\label{subsec:metrics}
+
+\noindent\textbf{False Darkening Rate (FDR):}
+The proportion of frames in which the system suppresses at least one
+LED cell when no opposing vehicle is present:
+
+\begin{equation}
+\mathrm{FDR} = \frac{1}{N_0}
+\sum_{t:\, \mathcal{B}^{*}_t = \emptyset}
+\mathbf{1}\!\left[\hat{\mathcal{B}}_t \neq \emptyset\right].
+\label{eq:fdr}
+\end{equation}
+
+This metric quantifies unnecessary darkening, which degrades the host
+driver's forward visibility. ~\cite{Lau2025FAR}
+
+\medskip
+\noindent\textbf{Missed Glare Rate (MGR):}
+The proportion of frames in which the system fails to suppress any LED
+cell when an opposing vehicle is present:
+
+\begin{equation}
+\mathrm{MGR} = \frac{1}{N_1}
+\sum_{t:\, \mathcal{B}^{*}_t \neq \emptyset}
+\mathbf{1}\!\left[\hat{\mathcal{B}}_t = \emptyset\right].
+\label{eq:mgr}
+\end{equation}
+
+MGR is the primary safety metric, representing events in which the
+system fails to prevent glare exposure to oncoming road users.
+
+\medskip
+\noindent\textbf{Trajectory RMSE:}
+\begin{equation}
+\mathrm{RMSE} = \sqrt{
+  \frac{1}{N} \sum_{t=1}^{N}
+  \left\|
+    \begin{bmatrix}\hat{c}_{x,t} \\ \hat{c}_{y,t}\end{bmatrix}
+    -
+    \begin{bmatrix}c^{*}_{x,t} \\ c^{*}_{y,t}\end{bmatrix}
+  \right\|_2^2
+},
+\label{eq:rmse}
+\end{equation}
+
+\noindent where $(c^{*}_{x,t}, c^{*}_{y,t})$ denotes the
+ground-truth centroid coordinates. ~\cite{Bishop2006}
+
+\medskip
+\noindent\textbf{Jitter Reduction (JR\%):}
+\begin{equation}
+\mathrm{JR} = \left(1 -
+  \frac{\sigma_{\hat{c}}^2}{\sigma_{d}^2}
+\right) \times 100\%,
+\label{eq:jitter}
+\end{equation}
+
+\noindent where $\sigma_{\hat{c}}^2$ and $\sigma_{d}^2$ are the
+centroid position variances of the Kalman Filter output and the raw
+YOLO output, respectively.
+
+\medskip
+In the results section, RMSE and JR\% are used to analyze tracking
+quality; GSSR, FDR, and MGR are used to analyze the full control
+outcome; and the occlusion-conditioned versions of these metrics are
+used as the primary basis for the B3/B4 comparison. This separation is
+intentional: the central claim is about actuation robustness during
+targeted degradation, not about universal detector superiority.
+
+\subsection{Dataset, Scenarios, and Baseline Configurations}
+\label{subsec:eval_data_baseline}
+
+Evaluation is performed on a manually curated \emph{Golden Test Set}
+reserved exclusively for final benchmarking and not used for detector training.
+Pixel-level bounding boxes are annotated in Roboflow and then projected
+onto LED grid cells via Eq.~\eqref{eq:zone_map} to obtain
+actuation-level ground truth. The final benchmark is intentionally
+organized around five failure-oriented scenarios that serve three
+roles in the argument: negative controls, targeted degradation cases,
+and a limitation case.
+
+Table~\ref{tab:eval_configs} summarizes the two comparison
+configurations, and Table~\ref{tab:testset} summarizes the five
+scenarios. Earlier exploratory studies considered broader detector and
+control ablations, but they are not used as the basis of the final
+claim.
+
+\begin{table}[t]
+\centering
+\caption{Evaluation configurations used in the experimental protocol}
+\label{tab:eval_configs}
+\begin{tabularx}{\textwidth}{l l Y}
+\toprule
+\textbf{Group} & \textbf{Configuration} & \textbf{Purpose} \\
+\midrule
+B3 & KF3D + fixed observation & Fixed-baseline configuration \\
+B4 & KF3D + adaptive switching & Adaptive-switching configuration \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+This structure supports a narrow interpretation of the later results.
+Because B3 and B4 share the same detector ensemble, KF3D backbone, and
+actuation controller, any difference between them can be attributed to
+the adaptive observation policy rather than to detector replacement,
+tracker family changes, or controller redesign.
+
+\subsubsection{Golden Test Set Construction}
+\label{subsec:testset}
+
+A \emph{Golden Test Set} of 953 video frames is constructed via manual
+annotation using Roboflow. Pixel-level bounding boxes are subsequently
+projected onto LED grid cells via Eq.~\eqref{eq:zone_map}. Table
+~\ref{tab:testset} summarizes the five evaluation scenarios.
+
+Sequences are selected to represent adversarial edge cases that induce
+failure in camera-only ADB systems:
+
+\begin{itemize}
+    \item \textbf{Mountain curve at night (negative control).} A curved
+    mountain-road sequence acquired at night, used to verify that the
+    adaptive logic does not degrade a difficult but non-targeted control case.
+
+    \item \textbf{Urban night with street lighting (negative control).} A nominal
+    nighttime urban sequence used to verify that the protocol preserves stable
+    operation when no targeted degradation is present.
+
+    \item \textbf{Foggy night (targeted degradation).} Diffuse
+    glare and bloom caused by fog stress the confidence-triggered
+    switching mechanism over a sustained degradation interval.
+
+    \item \textbf{Lightning disturbance at night (targeted degradation).} Abrupt
+    exposure disruption creates a short but severe degradation interval
+    and tests whether the adaptive logic can preserve actuation
+    continuity without harming the surrounding frames.
+
+    \item \textbf{Rainy night (limitation case).} Heavy rain and
+    specular reflection noise probe a regime in which confidence-based
+    switching may fail or overreact, and are treated explicitly as a
+    limitation test rather than a guaranteed success case.
+\end{itemize}
+
+\begin{table}[t]
+\centering
+\caption{Five-case protocol used in the final evaluation}
+\label{tab:testset}
+\begin{tabularx}{\textwidth}{Y l Y}
+\toprule
+\textbf{Scenario} & \textbf{Role} & \textbf{Purpose} \\
+\midrule
+Mountain curve at night & Negative control & Verify no control failure on a difficult curved-road night sequence \\
+Urban night with street lighting & Negative control & Verify no unnecessary degradation under nominal urban nighttime conditions \\
+Foggy night & Targeted degradation & Test sustained confidence collapse under fog-induced bloom \\
+Lightning disturbance at night & Targeted degradation & Test short abrupt exposure disruption \\
+Rainy night & Limitation case & Expose the heavy-rain failure boundary \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Frame counts and dominant challenges in the five-case protocol}
+\label{tab:testset_counts}
+{\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabularx}{\textwidth}{Y Y c Y}
+\toprule
+\textbf{Scenario} & \textbf{Challenge Type} & \textbf{Frames} & \textbf{Primary Difficulty} \\
+\midrule
+Mountain curve at night & Curved-road nighttime control & 76 & Difficult nighttime visibility on a mountain curve \\
+Urban night with street lighting & Urban nighttime control & 204 & Baseline operation under street illumination \\
+Rainy night & Specular reflection noise & 219 & Road reflections and lens water droplets \\
+Foggy night & Strong light scattering & 215 & Blooming and diffuse glare obscure vehicle features \\
+Lightning disturbance at night & Abrupt illumination transient & 239 & Exposure disruption causes short multi-frame instability \\
+\midrule
+\textbf{Total} & & \textbf{953} & \\
+\bottomrule
+\end{tabularx}
+}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\safegraphic[0.95\linewidth]{figs/q2_protocol_overview_placeholder.pdf}
+\caption{Protocol overview placeholder for the five-case evaluation.
+Replace this panel with a compact visual summary of the two negative controls
+(mountain curve at night and urban night with street lighting), the two targeted degradation cases
+(foggy night and lightning disturbance at night), and the limitation case
+(rainy night).}
+\label{fig:q2_protocol_overview}
+\end{figure}
+
+Fig.~\ref{fig:testset} illustrates representative frames from each
+scenario, depicting the specular reflection, bloom scattering, and
+exposure disruption conditions that constitute the primary failure
+triggers for camera-only systems.
+
+\begin{figure}[t]
+\centering
+\begin{subfigure}{0.3\linewidth}
+    \safegraphic[\linewidth]{figs/night_frame.png}
+    \caption*{(a)}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\linewidth}
+    \safegraphic[\linewidth]{figs/curved_frame.png}
+    \caption*{(b)}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\linewidth}
+    \safegraphic[\linewidth]{figs/raining_frame1.png}
+    \caption*{(c)}
+\end{subfigure}
+
+\vspace{0.3cm}
+
+\begin{subfigure}{0.3\linewidth}
+    \safegraphic[\linewidth]{figs/raining_frame2.png}
+    \caption*{(d)}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\linewidth}
+    \safegraphic[\linewidth]{figs/snow_frame.png}
+    \caption*{(e)}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\linewidth}
+    \safegraphic[\linewidth]{figs/thunder_frame1.png}
+    \caption*{(f)}
+\end{subfigure}
+
+\vspace{0.3cm}
+
+\begin{subfigure}{0.3\linewidth}
+    \safegraphic[\linewidth]{figs/thunder_frame2.png}
+    \caption*{(g)}
+\end{subfigure}
+
+\caption{Representative Golden Test Set frames.
+(a)~Mountain curve at night; (b)~Urban night with street lighting; (c--d)~Rainy night;
+(e)~Foggy night; (f--g)~Lightning disturbance at night.}
+\label{fig:testset}
+\end{figure}
+
+\FloatBarrier
+
+\subsection{Reporting Protocol}
+\label{subsec:eval_protocol}
+
+All results reported in Section~\ref{sec:results} are computed on the
+same Golden Test Set with identical post-processing and actuation
+settings. Scenario-wise reporting is retained because the dominant
+failure mechanisms differ substantially across low-light controls, rain,
+scattering, and abrupt exposure disruption. No scenario-specific
+threshold tuning is performed at test time. This fixed-protocol
+evaluation is intended to expose genuine robustness rather than gains
+attributable to per-scenario optimization.
+
+%% ==============================================================
+\section{Experimental Results}
+\label{sec:results}
+%% ==============================================================
+
+\subsection{Perception Ablations (A1--A4)}
+\label{subsec:res_a_ablation}
+
+Table~\ref{tab:res_a_ablation} is reserved for the detector-side
+ablations A1--A4. These rows are kept in the main results section,
+rather than in an appendix, so that the report structure remains
+aligned with the original draft. Cells are intentionally left blank
+where the corresponding experiment has not yet been finalized for
+reporting.
+
+\begin{table}[t]
+\centering
+\caption{Perception ablations A1--A4 (placeholder for detector-level statistics)}
+\label{tab:res_a_ablation}
+{\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{l Y c c c c c Y}
+\toprule
+\textbf{ID} & \textbf{Detector Configuration} & \textbf{mAP@0.5} & \textbf{Precision} & \textbf{Recall} & \textbf{GSSR} & \textbf{Occl.\ GSSR} & \textbf{Notes} \\
+\midrule
+A1 & Primary detector only   &  &  &  &  &  &  \\
+A2 & Secondary detector only &  &  &  &  &  &  \\
+A3 & Ensemble NMS            &  &  &  &  &  &  \\
+A4 & Ensemble weighted       &  &  &  &  &  &  \\
+\bottomrule
+\end{tabularx}
+}
+\end{table}
+
+\FloatBarrier
+
+\subsection{Tracking and Observation Ablations (B1--B4)}
+\label{subsec:res_b_ablation}
+
+Table~\ref{tab:res_b_ablation} is reserved for the tracking-side
+comparison from B1 to B4. This subsection is kept distinct from the
+main B3/B4 discussion below so that future numbers can be inserted
+without changing the report structure.
+
+\begin{table}[t]
+\centering
+\caption{Tracking and observation ablations B1--B4 (placeholder)}
+\label{tab:res_b_ablation}
+{\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{l Y c c c c c c c}
+\toprule
+\textbf{ID} & \textbf{Tracking Configuration} & \textbf{RMSE} & \textbf{JR\%} & \textbf{GSSR} & \textbf{FDR} & \textbf{MGR} & \textbf{Occl.\ GSSR} & \textbf{Occl.\ FDR} \\
+\midrule
+B1 & Raw detection / no KF   &  &  &  &  &  &  &  \\
+B2 & KF2D                    &  &  &  &  &  &  &  \\
+B3 & KF3D fixed observation  &  &  &  &  &  &  &  \\
+B4 & KF3D adaptive switching &  &  &  &  &  &  &  \\
+\bottomrule
+\end{tabularx}
+}
+\end{table}
+
+\FloatBarrier
+
+\subsection{Control and Switching Ablations (C1--C4)}
+\label{subsec:res_c_ablation}
+
+Table~\ref{tab:res_c_ablation} is reserved for the control-side
+comparison C1--C4. The purpose of placing it here is to preserve the
+same top-level experimental grouping as the original draft, even before
+all control ablation numbers are available.
+
+\begin{table}[t]
+\centering
+\caption{Control and switching ablations C1--C4 (placeholder)}
+\label{tab:res_c_ablation}
+{\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{@{}
+>{\centering\arraybackslash}p{0.05\textwidth}
+>{\raggedright\arraybackslash}p{0.24\textwidth}
+>{\centering\arraybackslash}p{0.065\textwidth}
+>{\centering\arraybackslash}p{0.065\textwidth}
+>{\centering\arraybackslash}p{0.065\textwidth}
+>{\centering\arraybackslash}p{0.08\textwidth}
+>{\centering\arraybackslash}p{0.08\textwidth}
+>{\centering\arraybackslash}p{0.08\textwidth}
+>{\centering\arraybackslash}p{0.09\textwidth}
+>{\raggedright\arraybackslash}p{0.105\textwidth}
+@{}}
+\toprule
+\textbf{ID} & \textbf{Control / Switching Configuration} & \textbf{GSSR} & \textbf{FDR} & \textbf{MGR} & \textbf{Occl.\ GSSR} & \textbf{Occl.\ FDR} & \textbf{Occl.\ MGR} & \textbf{Switch count} & \textbf{Notes} \\
+\midrule
+C1 & Direct control / no hold-time        &  &  &  &  &  &  &  &  \\
+C2 & Hold-time only                       &  &  &  &  &  &  &  &  \\
+C3 & KF3D fixed observation + hold-time   &  &  &  &  &  &  &  &  \\
+C4 & KF3D adaptive switching + hold-time  &  &  &  &  &  &  &  &  \\
+\bottomrule
+\end{tabularx}
+}
+\end{table}
+
+\FloatBarrier
+
+\subsection{Negative Controls}
+\label{subsec:res_controls}
+
+Table~\ref{tab:q2_controls} reports the full-sequence actuation metrics
+for the two negative controls. These sequences are used to verify that
+the adaptive policy does not damage normal or near-normal operation.
+
+\begin{table}[t]
+\centering
+\caption{Negative controls: full-sequence actuation metrics (\%, mean of five replays)}
+\label{tab:q2_controls}
+{\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{@{}
+>{\raggedright\arraybackslash}p{0.29\textwidth}
+>{\raggedright\arraybackslash}p{0.18\textwidth}
+>{\centering\arraybackslash}p{0.075\textwidth}
+>{\centering\arraybackslash}p{0.075\textwidth}
+>{\centering\arraybackslash}p{0.075\textwidth}
+>{\centering\arraybackslash}p{0.075\textwidth}
+>{\centering\arraybackslash}p{0.09\textwidth}
+>{\centering\arraybackslash}p{0.10\textwidth}
+@{}}
+\toprule
+\textbf{Scenario} & \textbf{Role} & \multicolumn{2}{c}{\textbf{B3}} & \multicolumn{2}{c}{\textbf{B4}} & \textbf{Shared MGR} & \textbf{B4 switches} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}
+ &  & \textbf{GSSR} & \textbf{FDR} & \textbf{GSSR} & \textbf{FDR} &  &  \\
+\midrule
+Mountain curve at night & Negative control & 84.21 & 15.79 & 84.21 & 15.79 & 0.00 & 2 \\
+Urban night with street lighting & Negative control & 95.59 & 4.41 & 95.59 & 4.41 & 0.00 & 0 \\
+\bottomrule
+\end{tabularx}
+}
+\end{table}
+
+\FloatBarrier
+
+The control cases confirm that the adaptive policy neither improves
+nor degrades the aggregate actuation outcome relative to the fixed KF3D
+baseline. In the urban night sequence with street lighting, B4 never enters the depth-only mode. In
+the mountain-curve night sequence, B4 switches only twice on average, yet the aggregate
+metrics remain identical to B3. This behavior is important for the main
+claim: the protocol preserves the controls, but the controls alone do not
+justify any claim of superiority for adaptive switching.
+
+\subsection{Targeted Degradation Cases}
+\label{subsec:res_targeted}
+
+Table~\ref{tab:q2_occlusion} reports the primary metrics, namely the
+occlusion-window actuation metrics restricted to the manually annotated
+degradation intervals.
+
+\begin{table}[t]
+\centering
+\caption{Primary comparison on degradation intervals (\%, mean of five replays)}
+\label{tab:q2_occlusion}
+{\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{@{}
+>{\raggedright\arraybackslash}p{0.29\textwidth}
+>{\raggedright\arraybackslash}p{0.18\textwidth}
+>{\centering\arraybackslash}p{0.065\textwidth}
+>{\centering\arraybackslash}p{0.065\textwidth}
+>{\centering\arraybackslash}p{0.065\textwidth}
+>{\centering\arraybackslash}p{0.065\textwidth}
+>{\centering\arraybackslash}p{0.065\textwidth}
+>{\centering\arraybackslash}p{0.065\textwidth}
+>{\centering\arraybackslash}p{0.10\textwidth}
+@{}}
+\toprule
+\textbf{Scenario} & \textbf{Role} & \multicolumn{3}{c}{\textbf{B3}} & \multicolumn{4}{c}{\textbf{B4}} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-9}
+ &  & \textbf{GSSR} & \textbf{MGR} & \textbf{FDR} & \textbf{GSSR} & \textbf{MGR} & \textbf{FDR} & \textbf{Switches} \\
+\midrule
+Foggy night & Targeted degradation & 98.25 & 0.00 & 1.75 & 98.25 & 0.00 & 1.75 & 35 \\
+Lightning disturbance at night & Targeted degradation & 77.78 & 0.00 & 22.22 & 77.78 & 0.00 & 22.22 & 1 \\
+Rainy night & Limitation case & 77.78 & 0.00 & 22.22 & 55.56 & 0.00 & 44.44 & 9 \\
+\bottomrule
+\end{tabularx}
+}
+\end{table}
+
+Two findings follow directly from Table~\ref{tab:q2_occlusion}. First,
+adaptive switching is \emph{active} in the intended degradation cases.
+In the foggy-night sequence, B4 enters the reduced observation mode 35 times
+per replay on average, spending 16.28\% of frames in depth-only mode.
+In the lightning-disturbance sequence, the trigger is far rarer (one switch, 0.42\% of
+frames), reflecting a short disruption window rather than a sustained
+collapse.
+
+Second, this activity does not translate into a blanket aggregate
+advantage. In the foggy-night sequence, B4 matches B3 exactly on the primary
+occlusion metrics. In the lightning-disturbance sequence, B4 again matches B3 exactly.
+These two cases therefore support a narrower interpretation: adaptive
+switching behaves as a scenario-dependent robustness mechanism that can
+preserve actuation performance under targeted degradation, but the final
+results do not support the stronger claim that B4 consistently
+outperforms B3.
+
+\begin{figure}[t]
+\centering
+\safegraphic[0.95\linewidth]{figs/fogging_switch_placeholder.pdf}
+\caption{Placeholder for a foggy-night switching visualization.
+Recommended content: confidence over time, shaded degradation interval,
+and B4 switch/depth-only activation markers, together with a short visual
+comparison of the B3 and B4 actuation trajectories.}
+\label{fig:fogging_switch}
+\end{figure}
+
+\FloatBarrier
+
+\subsection{Limitation Case and Boundary of the Claim}
+\label{subsec:res_limitation}
+
+The principal limitation case is the rainy-night sequence. Under heavy rain and
+specular reflection noise, B4 falls from 77.78\% to 55.56\% occlusion
+GSSR, and its occlusion false darkening rate rises from 22.22\% to
+44.44\%. The missed glare rate remains at 0.00\% for both B3 and B4,
+but the rain sequence nonetheless establishes an important limitation:
+confidence-based switching is not a universal replacement for fixed
+observation. In this regime, the adaptive policy triggers nine times per
+replay on average, yet the resulting trajectory is less well-behaved at
+the LED-grid level than the fixed-observation baseline.
+
+This limitation is not treated as an outlier to be discarded. Instead,
+it defines the boundary of the claim that can be defended from the
+reported evidence. The appropriate interpretation is therefore:
+\begin{quote}
+Adaptive switching is a scenario-dependent robustness mechanism. It can
+preserve actuation-level performance in certain degradation modes, but it
+does not dominate fixed observation under all adverse weather
+conditions.
+\end{quote}
+
+\begin{figure}[t]
+\centering
+\safegraphic[0.95\linewidth]{figs/rain_limitation_placeholder.pdf}
+\caption{Placeholder for a rainy-night limitation visualization.
+Recommended content: representative frames or a time-series showing the
+heavy-rain interval, B4 switching activity, and the divergence between B3
+and B4 in LED-grid actuation quality.}
+\label{fig:rain_limitation}
+\end{figure}
+
+\FloatBarrier
+
+\subsection{Latency, Tracking Stability, and Reproducibility}
+\label{subsec:res_runtime}
+
+The B3/B4 comparison introduces only a marginal computational
+difference. Averaged over the five scenarios, B3 yields a mean total
+latency of 277.65\,ms per frame, while B4 yields 282.12\,ms per frame.
+The adaptive logic therefore imposes no significant runtime overhead relative to the detector stack.
+
+Trajectory-level metrics likewise show only minor differences between
+B3 and B4 under the pre-specified protocol. For example, the full-sequence
+RMSE values are nearly identical in the mountain-curve night sequence (36.14 vs.\
+36.13\,px), the urban night sequence with street lighting (16.49 vs.\ 16.49\,px),
+the foggy-night sequence (136.27 vs.\ 136.95\,px), and the lightning-disturbance sequence
+(11.71 vs.\ 11.72\,px). The decisive evidence for the main claim
+therefore derives from the occlusion-conditioned actuation metrics rather
+than from large tracking-RMSE gaps.
+
+Finally, the five repeated offline replays are deterministic with
+respect to the aggregate actuation metrics: the reported GSSR, MGR, and
+FDR values are identical across \texttt{run\_01} to \texttt{run\_05} for
+each configuration and scenario. The repeated runs should
+therefore be interpreted as a reproducibility check under a fixed
+protocol, not as a source of independent stochastic variability for
+statistical significance claims.
+
+%% ==============================================================
+\section{Conclusion}
+\label{sec:conclusion}
+%% ==============================================================
+
+This paper presented \textbf{AuraBeam}, a closed-loop Hardware-in-the-Loop research platform for studying nighttime vehicle localization and
+LED-grid glare suppression under glare-induced visual degradation. The
+final evaluation focused on a narrow and defensible comparison:
+B3 (KF3D with fixed observation) versus B4 (KF3D with adaptive
+switching) under a pre-specified five-case protocol. Three findings emerge from this evaluation.
+
+First, the protocol itself is stable and reproducible. The two negative
+controls, namely the mountain-curve night sequence and the urban night
+sequence with street lighting, are preserved under
+the adaptive policy, and five repeated offline replays yield
+identical aggregate actuation metrics for each scenario and
+configuration. Second, adaptive switching operates as intended in
+the targeted degradation cases. In the foggy-night sequence, B4 switches 35
+times per replay on average and matches B3 at 98.25\% occlusion GSSR
+with 1.75\% occlusion false darkening. In the lightning-disturbance sequence, B4
+switches once on average and again matches B3 at 77.78\% occlusion GSSR
+with 22.22\% occlusion false darkening. Third, the limitation case is
+clear and should be stated explicitly: in the rainy-night sequence, B4 drops to
+55.56\% occlusion GSSR compared with 77.78\% for B3, while its
+occlusion false darkening rises to 44.44\%.
+
+The principal conclusion is therefore deliberately conservative:
+\emph{adaptive switching is a scenario-dependent robustness mechanism,
+not a universal replacement for fixed observation}. This claim is
+sufficiently supported by the reported evidence, whereas a stronger
+claim of consistent superiority would not be.
+
+\paragraph{Limitations and Safety Considerations.}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Scenario-Dependent Limitation.} The rainy-night
+    sequence shows that the current confidence-based switching policy
+    can underperform the fixed-observation baseline under heavy rain and
+    strong specular reflection noise. Future work should treat this as a
+    first-class design target rather than a minor residual error.
+  \item \textbf{Constant-Velocity Model.} The Pseudo-Radar assumes
+    constant $v_{\mathrm{app}}$. Under moderate braking
+    ($a = -0.5\,g$), depth estimation error accumulates as
+    $\Delta Z(t) \approx \frac{1}{2}|a|t^2$, reaching ${\sim}$1--2\,m
+    after 1--1.5\,s of camera occlusion. Future work must implement
+    adaptive velocity estimation or higher-order kinematic models
+    (e.g., constant-turn-rate). A formal safety analysis linking
+    maximum tolerable $\Delta Z$ to ADB control margins has not been
+    performed.
+  \item \textbf{$8\times8$ LED Resolution.} The prototype operates
+    with 64 segments ($11.25^\circ$ per segment), substantially coarser
+    than production standards ($\geq1^\circ$ per SAE J3014). This directly
+    inflates FDR; scaling to a production-grade matrix geometry is a
+    prerequisite for regulatory acceptance.
+  \item \textbf{Single-Vehicle Tracking.} The Kalman filter assumes
+    a single oncoming vehicle. Multi-vehicle scenarios (highway
+    overtaking) require independent KF tracks per target, increasing
+    computational load and synchronization complexity.
+  \item \textbf{Deterministic Replay Protocol.} The five repeated runs
+    in the final study are deterministic offline replays. They are
+    useful for reproducibility and runtime measurement, but they do not
+    constitute independent stochastic trials for strong statistical
+    significance claims.
+  \item \textbf{GSSR Metric Validation.} The proposed GSSR captures
+    grid coverage but has \emph{not been validated} against photometric
+    standards (illuminance in lux per UN ECE R123 Article 6). Bridging
+    LED-grid fidelity to lux compliance still requires laboratory
+    photometric measurement.
+\end{itemize}
+
+\paragraph{Future Work and Production Pathway.}
+\begin{enumerate}[label=\textbf{(\roman*)},leftmargin=*]
+  \item \textbf{Adaptive Switching Refinement.} Replace the current
+    confidence-only trigger with a degradation detector that jointly
+    reasons about confidence, track continuity, and scene context.
+    Heavy-rain robustness should be the primary benchmark for this
+    refinement.
+  \item \textbf{Advanced Motion Models.} Replace the constant-velocity
+    assumption with constant-turn-rate (CTR) or Wiener process
+    acceleration models to handle real-world vehicle maneuvers and
+    longer dropout intervals.
+  \item \textbf{Real Sensor Fusion.} Integrate a 77--79\,GHz mmWave
+    Radar in place of the Pseudo-Radar simulation; benchmark depth
+    accuracy against LiDAR ground truth, targeting $|\Delta Z| < 0.5$\,m
+    under emergency braking.
+  \item \textbf{Full Embedded Deployment.} Port to NVIDIA Jetson Orin
+    Nano with TensorRT optimization; measure end-to-end latency from
+    camera capture to LED actuation under real-time OS constraints.
+    Validate $\geq$30\,FPS compliance per ISO 26262~\cite{ISO26262_2018}.
+  \item \textbf{Production LED Hardware.} Scale from the $8\times8$
+    prototype (64 segments) to a production-grade matrix
+    ($\geq$512 segments); re-evaluate GSSR and FDR scaling laws under
+    finer spatial granularity.
+  \item \textbf{Photometric Validation.} Establish a goniophotometric
+    bench with calibrated luminance meters; correlate the proposed GSSR
+    metric with actual illuminance reduction (lux) per UN ECE R123
+    Article 6.2. This step is mandatory for regulatory compliance claims.
+  \item \textbf{Functional Safety Analysis.} Conduct ISO 26262
+    Functional Safety Assessment (ASIL rating, FMEA). Characterize
+    failure modes (Pseudo-Radar corruption, Kalman filter divergence)
+    and implement fail-safe fallback strategies (e.g., conservative
+    full-beam cutoff).
+\end{enumerate}
+
+
+% \backmatter
+
+% \bmhead{Supplementary information}
+
+% If your article has accompanying supplementary file/s please state so here. 
+
+% Authors reporting data from electrophoretic gels and blots should supply the full unprocessed scans for key as part of their Supplementary information. This may be requested by the editorial team/s if it is missing.
+
+% Please refer to Journal-level guidance for any specific requirements.
+
+\bmhead{Acknowledgements}
+
+% [EDITOR NOTE: The acknowledgements section below contains template placeholder text and must be replaced with actual funding/acknowledgement information before submission.]
+Acknowledgements are not compulsory. Where included they should be brief. Grant or contribution numbers may be acknowledged.
+
+Please refer to Journal-level guidance for any specific requirements.
+
+\section*{Declarations}
+
+
+
+\iffalse
+\begin{appendices}
+
+\section{Supporting Ablation Tables}
+\label{app:ablation_tables}
+
+The main text of the final report focuses on the main B3/B4
+comparison. The tables in this appendix are reserved for the broader
+supporting ablations A1--A4, B1--B4, and C1--C4. Cells are intentionally
+left blank where the corresponding evaluation has not yet been completed or
+% [EDITOR NOTE: possible inconsistency here—please verify manually.]
+curated for reporting.
+
+\begin{table}[h]
+\centering
+\caption{Placeholder table for A1--A4 detector ablations}
+\label{tab:appendix_a_ablation}
+\begin{tabular}{llcccccc}
+\hline
+\textbf{ID} & \textbf{Detector Configuration}
+  & \textbf{mAP@0.5}
+  & \textbf{Precision}
+  & \textbf{Recall}
+  & \textbf{GSSR}
+  & \textbf{Occl.\ GSSR}
+  & \textbf{Notes} \\
+\hline
+A1 & Primary detector only            &  &  &  &  &  &  \\
+A2 & Secondary detector only          &  &  &  &  &  &  \\
+A3 & Ensemble NMS                     &  &  &  &  &  &  \\
+A4 & Ensemble weighted                &  &  &  &  &  &  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Placeholder table for B1--B4 tracking and observation ablations}
+\label{tab:appendix_b_ablation}
+\begin{tabular}{llccccccc}
+\hline
+\textbf{ID} & \textbf{Tracking Configuration}
+  & \textbf{RMSE}
+  & \textbf{JR\%}
+  & \textbf{GSSR}
+  & \textbf{FDR}
+  & \textbf{MGR}
+  & \textbf{Occl.\ GSSR}
+  & \textbf{Occl.\ FDR} \\
+\hline
+B1 & Raw detection / no KF                    &  &  &  &  &  &  &  \\
+B2 & KF2D                                     &  &  &  &  &  &  &  \\
+B3 & KF3D fixed observation                   &  &  &  &  &  &  &  \\
+B4 & KF3D adaptive switching                  &  &  &  &  &  &  &  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Placeholder table for C1--C4 control and switching ablations}
+\label{tab:appendix_c_ablation}
+\begin{tabular}{llcccccccc}
+\hline
+\textbf{ID} & \textbf{Control / Switching Configuration}
+  & \textbf{GSSR}
+  & \textbf{FDR}
+  & \textbf{MGR}
+  & \textbf{Occl.\ GSSR}
+  & \textbf{Occl.\ FDR}
+  & \textbf{Occl.\ MGR}
+  & \textbf{Switch Count}
+  & \textbf{Notes} \\
+\hline
+C1 & Direct control / no hold-time                 &  &  &  &  &  &  &  &  \\
+C2 & Hold-time only                                &  &  &  &  &  &  &  &  \\
+C3 & KF3D fixed observation + hold-time            &  &  &  &  &  &  &  &  \\
+C4 & KF3D adaptive switching + hold-time           &  &  &  &  &  &  &  &  \\
+\hline
+\end{tabular}
+\end{table}
+
+\end{appendices}
+\fi
+
+% \section{Section title of first appendix}\label{secA1}
+
+% An appendix contains supplementary information that is not an essential part of the text itself but which may be helpful in providing a more comprehensive understanding of the research problem or it is information that is too cumbersome to be included in the body of the paper.
+
+% %%=============================================%%
+% %% For submissions to Nature Portfolio Journals %%
+% %% please use the heading ``Extended Data''.   %%
+% %%=============================================%%
+
+% %%=============================================================%%
+% %% Sample for another appendix section			       %%
+% %%=============================================================%%
+
+% %% \section{Example of another appendix section}\label{secA2}%
+% %% Appendices may be used for helpful, supporting or essential material that would otherwise 
+% %% clutter, break up or be distracting to the text. Appendices can consist of sections, figures, 
+% %% tables and equations etc.
+
+% \end{appendices}
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+
+\bibliography{sn-bibliography}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+\end{document}
